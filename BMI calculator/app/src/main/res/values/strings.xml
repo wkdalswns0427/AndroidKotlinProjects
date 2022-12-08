@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BMI-prt</string>
+    <string name="height">H</string>
+    <string name="weight">W</string>
+    <string name="confirm">confirm</string>
+    <string name="resultWIdx">BMI : </string>
+    <string name="resultTextIdx">Alert : </string>
+</resources>

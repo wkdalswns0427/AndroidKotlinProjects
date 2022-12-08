@@ -1,2 +1,5 @@
 # AndroidKotlinProjects
-practice android in Kotlin
+
+- Android Studio
+- Lang : Kotlin
+- Target >= Android 9.0 Pie

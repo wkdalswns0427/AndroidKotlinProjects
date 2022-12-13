@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AccessPoint</string>
+    <string name="access">Access</string>
+    <string name="reading_and_writing_to_external_storage">Reading and Writing to External Storage</string>
+    <string name="read">READ</string>
+    <string name="save">SAVE</string>
+    <string name="write">WRITE</string>
+
+</resources>

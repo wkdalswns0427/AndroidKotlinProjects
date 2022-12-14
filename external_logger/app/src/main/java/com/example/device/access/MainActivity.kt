@@ -1,35 +1,56 @@
 package com.example.device.access
 
 import android.app.Activity
-import android.content.BroadcastReceiver
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.os.Handler
 import android.util.Log
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import java.io.*
+import android.widget.Toast
 import java.util.*
 
 //input saver
 //-------------------------------------------------------------------------------------------------
 class MainActivity : Activity() {
-
-    private val mDelayHandler: Handler by lazy {
-        Handler()
-    }
-    val ext = externalLogWriter(this)
+    lateinit var btnSetAlarm: Button
+    val ext = ExternalLogWriter(this)
+    val ARec = AlarmReceiver()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.device.access.R.layout.sample_layout)
 
+        btnSetAlarm = findViewById(R.id.toggleButton01)
+        btnSetAlarm.setOnClickListener{
+            setAlarm()
+        }
+    }
 
-        ext.leaveLogTimer()
+    private fun setAlarm() {
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this, ARec::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
 
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.set(
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH),
+            calendar.get(Calendar.HOUR_OF_DAY),
+            15,
+            0
+        )
+        alarmManager.setRepeating(
+            AlarmManager.RTC,
+            calendar.timeInMillis,
+            AlarmManager.INTERVAL_HOUR,
+            pendingIntent
+        )
+        Toast.makeText(this, "AlarmButton is set", Toast.LENGTH_SHORT).show()
+        Log.d("Alarm Bell", "Alarm just initiated")
+        ext.extLogger("Alarm Bell", "Alarm just initiated")
     }
 }

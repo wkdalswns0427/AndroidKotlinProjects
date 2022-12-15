@@ -7,8 +7,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+// custom log writer
+// call to leave log on "customlog_byAlarm$yyyyMMdd.txt"
 class ExternalLogWriter(private var context: Context) {
-
 
     fun extLogger(tag: String, msg: String){
         val c = Calendar.getInstance()

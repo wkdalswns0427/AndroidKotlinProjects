@@ -22,11 +22,12 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.device.access.R.layout.sample_layout)
+        setAlarm()
 
-        btnSetAlarm = findViewById(R.id.toggleButton01)
-        btnSetAlarm.setOnClickListener{
-            setAlarm()
-        }
+//        btnSetAlarm = findViewById(R.id.toggleButton01)
+//        btnSetAlarm.setOnClickListener{
+//            setAlarm()
+//        }
     }
 
     private fun setAlarm() {

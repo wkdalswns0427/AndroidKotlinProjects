@@ -62,15 +62,17 @@ class AlarmLogWriter(private var context: Context) {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         var month = c.get(Calendar.MONTH) + 1
-        val day = c.get(Calendar.DAY_OF_MONTH)
+        var day = c.get(Calendar.DAY_OF_MONTH) // val actually... var for test
 
-        if(month!=1){
-            month -= 1
-        }else{
-            month = 12
-        }
+//        if(month!=1){
+//            month -= 1
+//        }else{
+//            month = 12
+//        }
+        day -= 3
 
         val prevfilename = "logfile_byAlarm$year$month$day.txt"
+        val absPath = "/storage/emulated/0/Android/data/com.example.device.access/cache" + prevfilename
         val targetFIle = File(context.externalCacheDir, prevfilename)
 
         if (!targetFIle.exists()) {

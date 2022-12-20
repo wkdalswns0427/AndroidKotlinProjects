@@ -27,5 +27,4 @@ class ExternalLogWriter(private var context: Context) {
         outputFile.appendText(logdata)
 
     }
-
 }

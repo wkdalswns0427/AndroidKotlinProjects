@@ -47,7 +47,7 @@ class MainActivity : Activity() {
         alarmManager.setRepeating(
             AlarmManager.RTC,
             calendar.timeInMillis,
-            AlarmManager.INTERVAL_HOUR,
+            AlarmManager.INTERVAL_HALF_DAY,
             pendingIntent
         )
         Toast.makeText(this, "AlarmButton is set", Toast.LENGTH_SHORT).show()

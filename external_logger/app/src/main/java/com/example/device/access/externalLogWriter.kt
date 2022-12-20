@@ -19,8 +19,8 @@ class ExternalLogWriter(private var context: Context) {
 
 
         val formattedDate = SimpleDateFormat("yyyy.MM.dd HH:mm:ss",Locale.ENGLISH).format(c.timeInMillis)
+        // data!
         val logdata  = formattedDate + "\t" + tag + "\t" + msg + "\n"
-
 
         val filename = "customlogfile$year$month$day.txt"
         val outputFile = File(context.externalCacheDir, filename)
